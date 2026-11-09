@@ -1,0 +1,208 @@
+import type { Lang } from './menu.ts';
+
+type Dict = Record<string, string>;
+
+const en: Dict = {
+  title: 'Sizzle — Restaurant Ordering Platform',
+  platform: 'Ordering Platform', selectRole: 'Select role', client: 'Client', waiter: 'Waiter', admin: 'Admin',
+  offlineBanner: 'Connection lost — reconnecting… orders cannot be sent until the server is back.',
+  serverDown: 'Cannot reach the restaurant server. Check that it is running and you are on the same network.',
+  connecting: 'Connecting to the restaurant server…',
+
+  heroA: 'Every dish, ', heroEm: 'exploded', heroB: ' into real 3D ingredients.',
+  heroDesc: 'Tap any meal to open a live 3D model. Rotate it, zoom in, then pull the ingredients apart to see exactly what goes into your plate — and how much of it.',
+  realTime: 'Real-time 3D', transparency: 'Portion transparency', hdMode: 'HD mode',
+  how: 'How it works',
+  step1: 'Tap a meal — explore the live 3D model.', step2: 'Separate ingredients — see each layer and its portion.', step3: 'Place your order — receive your order number instantly.',
+  promotions: 'Promotions', categories: 'Meal categories', subCategories: 'Sub-categories',
+  All: 'All', promoMeals: 'Promo meals', search: 'Search meals…',
+  showingEvent: 'Showing meals in: {name}', clearFilter: 'Show all',
+  dishCount: '{n} dishes · {a} available', loading: 'Loading menu…', noMeals: 'No meals found.',
+  view3d: 'View 3D', soldOut: 'Sold out', addLabel: 'Add {name} to order', viewLabel: 'View {name} in 3D',
+  lanNote: 'Orders are sent to the kitchen over the restaurant network. No payment is collected here.',
+  cartTitle: '{n} items ready', cartSub: '{n} items in your order', youSave: 'You save {amount}', clear: 'Clear', placeOrder: 'Place order',
+  buyGet: 'Buy {b} Get {g}', always: 'Always',
+
+  modelLabel: 'Interactive 3D meal model', liveModel: 'Live 3D model', autoSpin: 'Auto-spin',
+  explode: '✦ Separate ingredients', assemble: '✦ Re-assemble meal', resetView: 'Reset view',
+  hdHint: 'HD: photoreal 3D-scanned model, where available', hdSlow: 'HD was too slow on this device — switched back to Standard.',
+  photoModel: 'HD photoreal model', hdLoading: 'Loading photoreal model…', hdFailed: 'The photoreal model could not be loaded — showing the standard model.',
+  hdNotAvailable: 'No photoreal model for this dish yet — showing the standard model.',
+  hdSolid: 'This photoreal scan is one solid piece, so its ingredients cannot be separated.',
+  hdCredit: 'Scan: Poly Haven (CC0)', hdCreditBlender: 'Bun: Poly Haven scan (CC0) · ingredients modelled in Blender', hdCreditModelled: 'Modelled and textured in Blender for this menu', hdCreditBoard: 'Modelled in Blender · board: Poly Haven scan (CC0)', arrangeSpread: 'Lay ingredients side by side (platter) instead of stacking',
+  modelHint: 'Drag to rotate · Scroll / pinch to zoom · Tap an ingredient to focus',
+  unavailable3d: '3D view unavailable', fallbackDesc: 'The recipe and portion information is still available below.',
+  prepTime: 'Prep time', energy: 'Energy', price: 'Price', recipe: 'Recipe & portions', min: 'min', kcal: 'kcal',
+  unit_g: 'g', unit_ml: 'ml', pcs: 'pcs', slices: 'slices',
+  decrease: 'Decrease quantity', increase: 'Increase quantity', addOrder: 'Add {n} to order · {total}', close: 'Close',
+
+  confirmTitle: 'Confirm your order', checkoutDesc: 'Choose where you are seated and we will send it to the kitchen.',
+  tableNumber: 'Table number', table: 'Table', tableName: 'Table {n}', free: 'Free', busy: 'Busy', needsBill: 'Bill',
+  items: 'Items', total: 'Total', discount: 'Discount', noteOptional: 'Note (optional)', notePlaceholder: 'e.g. no onions',
+  cancel: 'Cancel', sending: 'Sending…', confirmOrder: 'Confirm order', pickTable: 'Please pick your table number.',
+  cartUnavailable: 'Some meals in your order are sold out. Remove them and try again.',
+  confirmed: 'Order confirmed!', showNumber: 'Show this number to your waiter', thanks: 'Great, thanks!', takenBy: 'Taken by', meals: 'Meals',
+  added: '✅ {name} added to your order', notAvailable: '{name} is sold out.', maxQty: 'Maximum 20 portions per meal.',
+
+  new: 'New', preparing: 'Preparing', ready: 'Ready', served: 'Served', cancelled: 'Cancelled',
+  accept: 'Accept & prepare', markReady: 'Mark ready', markServed: 'Mark served', backToNew: 'Back to New', backToPreparing: 'Back to Preparing',
+  cancelOrder: 'Cancel order', cancelReason: 'Reason', cancelReasonHelp: 'Tell the team why this order is cancelled.', back: 'Back',
+  orderUpdated: 'Order {number} → {status}', noOrders: 'No orders yet.',
+  alertNew: 'New order {number} · Table {table}', alertReady: 'Order {number} is READY · Table {table}',
+
+  waiterAccess: 'Waiter access', staffPin: 'Enter your 4-digit staff PIN', managerAccess: 'Manager access', enterAdminPin: 'Enter the admin PIN',
+  adminOnly: 'This PIN does not have admin rights.', allDigits: 'Please enter all 4 digits.', clearPin: 'Clear PIN', deleteDigit: 'Delete last digit',
+  demoAccess: 'Staff area. Ask your manager if you do not have a PIN.',
+  waiterConsole: 'Waiter console', signedIn: 'Signed in as {name}', lockConsole: 'Lock console', locked: 'Locked',
+  selectTable: 'Select table', tableSelected: 'Table {n} selected', noTable: 'No table selected',
+  billPaid: 'Paid — free the table', requestBill: 'Bill requested',
+  takeOrder: 'Take order', orders: 'Orders', pickTableFirst: 'Select a table on the left to take an order.',
+  ordersForTable: 'Orders for table {n}', allTables: 'All tables', showFinished: 'Show finished', noActiveOrders: 'No active orders.',
+  orderSlip: 'Order slip', sendTo: 'Send to', newOrder: 'New order', addToOrder: 'Add to {number}', emptySlip: 'No items yet — add meals from the list.',
+  addFirst: 'Add at least one meal.', itemsAdded: 'Items added to {number}', addToKitchen: 'Add to order & send to kitchen', sendKitchen: 'Send order to kitchen',
+
+  dashboard: 'Manager dashboard', dashboardDesc: 'Live orders, events, menu and staff', lockDashboard: 'Lock dashboard',
+  defaultPinWarn: 'You are still using a default PIN. Change it in the Staff tab.',
+  tabOverview: 'Overview', tabEvents: 'Events', tabMenu: 'Menu', tabStaff: 'Staff',
+  orders12: 'Orders (12h)', revenue12: 'Revenue (12h)', activeTickets: 'Active tickets', occupied: 'Tables in use', liveOrders: 'Live orders',
+
+  newEvent: 'New event', editEvent: 'Edit event',
+  eventsHelp: 'Events apply discounts automatically at ordering time. Where several apply to one item, the best single discount wins.',
+  noEvents: 'No events yet.', confirmDeleteEvent: 'Delete event "{name}"?', deleted: 'Deleted',
+  allMeals: 'All meals', liveNow: 'Live now', scheduled: 'Scheduled', off: 'Off', active: 'Active', edit: 'Edit', delete: 'Delete',
+  presets: 'Presets', titleEn: 'Title (English)', titleUz: 'Title (Uzbek)', eventType: 'Type',
+  typePercent: 'Percent off', typeFixed: 'Fixed amount off', typeBogo: 'Buy X, get Y free',
+  percentOff: 'Percent off (%)', amountOff: 'Amount off (UZS per item)', buyQty: 'Buy', freeQty: 'Get free',
+  appliesTo: 'Applies to', appliesHelp: 'Pick categories and/or individual meals. Leave everything empty to apply to all meals.', searchMeals: 'Search meals…',
+  schedule: 'Schedule', scheduleHelp: 'Leave empty for always on. Pick weekdays, a daily time window, and/or a date range.',
+  startTime: 'Daily from', endTime: 'Daily until', fromDate: 'Start date', toDate: 'End date',
+  banner: 'Banner image (optional)', removeImage: 'Remove image', imageTypeError: 'Please choose a PNG, JPEG or WebP image.', imageSizeError: 'Image is too large (max 3 MB).',
+  saved: 'Saved', save: 'Save',
+
+  categoriesTitle: 'Categories', newCategory: 'New category', editCategory: 'Edit category', mealsTitle: 'Meals', newMeal: 'New meal', editMeal: 'Edit meal',
+  confirmDeleteCategory: 'Delete category "{name}"?', confirmDeleteMeal: 'Delete meal "{name}"?',
+  priceUpdated: 'Price updated to {total}', invalidPrice: 'Enter a valid price.', priceFor: 'Price for {name}', availability: 'Availability of {name}',
+  nameEn: 'Name (English)', nameUz: 'Name (Uzbek)', icon: 'Icon', parentCategory: 'Parent category', sortOrder: 'Sort order', none: 'None',
+  tagEn: 'Short line (English)', tagUz: 'Short line (Uzbek)', descEn: 'Description (English)', descUz: 'Description (Uzbek)',
+  category: 'Category', priceUzs: 'Price (UZS)', container: '3D vessel', photo: 'Photo (optional)', available: 'Available',
+  container_plate: 'Plate', container_board: 'Wooden board', container_bowl: 'Bowl', container_glass: 'Glass', container_mug: 'Mug', container_cup: 'Coffee cup', container_none: 'None',
+  ingredientsTitle: 'Ingredients (bottom → top)', ingredientsHelp: 'Each ingredient becomes a layer in the 3D model. Choose a shape and a colour.',
+  legacyModelNote: 'This meal uses a hand-built 3D model. You can change names and amounts, but not add or reshape layers.',
+  amount: 'Amount', unit: 'Unit', color: 'Colour', shape: 'Shape', size: 'Size', moveUp: 'Move up', moveDown: 'Move down', addIngredient: 'Add ingredient',
+  shape_disc: 'Disc', shape_slab: 'Slab', shape_mound: 'Mound', shape_scatter: 'Pieces', shape_rings: 'Rings', shape_drizzle: 'Sauce drizzle',
+  shape_sphere: 'Balls / scoops', shape_roll: 'Sticks / rolls', shape_tall: 'Tall', shape_liquid: 'Liquid', shape_foam: 'Foam', shape_ice: 'Ice cubes', shape_leaf: 'Leaves',
+
+  staff: 'Staff', addStaff: 'Add staff member', name: 'Name', role: 'Role', pin: 'PIN', add: 'Add', newPin: 'New PIN', defaultPin: 'Default PIN',
+  confirmDeleteStaff: 'Remove {name}?', restaurantSettings: 'Restaurant settings', tableCount: 'Number of tables',
+
+  errNetwork: 'Cannot reach the server.', errGeneric: 'Something went wrong.',
+  'srv:Incorrect PIN': 'Incorrect PIN. Try again.',
+};
+
+const uz: Dict = {
+  title: 'Sizzle — Restoran buyurtma platformasi',
+  platform: 'Buyurtma platformasi', selectRole: 'Rolni tanlang', client: 'Mijoz', waiter: 'Ofitsiant', admin: 'Admin',
+  offlineBanner: 'Aloqa uzildi — qayta ulanmoqda… Server qaytguncha buyurtma yuborib bo‘lmaydi.',
+  serverDown: 'Restoran serveriga ulanib bo‘lmadi. Server yoqilganini va bir xil tarmoqda ekaningizni tekshiring.',
+  connecting: 'Restoran serveriga ulanmoqda…',
+
+  heroA: 'Har bir taomning tarkibini ', heroEm: '3D ko‘rinishda', heroB: ' kashf eting.',
+  heroDesc: 'Jonli 3D modelni ochish uchun taomni bosing. Uni aylantiring, yaqinlashtiring va masalliqlarini ajratib, taomingiz tarkibi hamda har bir masalliq miqdorini ko‘ring.',
+  realTime: 'Jonli 3D ko‘rinish', transparency: 'Aniq porsiya miqdori', hdMode: 'HD rejim',
+  how: 'Bu qanday ishlaydi?',
+  step1: 'Taomni bosing — jonli 3D modelni ko‘ring.', step2: 'Masalliqlarni ajrating — har bir qatlam va uning miqdorini ko‘ring.', step3: 'Buyurtma bering — buyurtma raqamini darhol oling.',
+  promotions: 'Aksiyalar', categories: 'Taom toifalari', subCategories: 'Ichki toifalar',
+  All: 'Barchasi', promoMeals: 'Aksiyadagi ovqatlar', search: 'Taom qidirish…',
+  showingEvent: 'Aksiyadagi taomlar: {name}', clearFilter: 'Barchasini ko‘rsatish',
+  dishCount: '{n} ta taom · {a} tasi mavjud', loading: 'Menyu yuklanmoqda…', noMeals: 'Taom topilmadi.',
+  view3d: '3D ko‘rish', soldOut: 'Tugagan', addLabel: '{name}ni buyurtmaga qo‘shish', viewLabel: '{name}ni 3D ko‘rinishda ko‘rish',
+  lanNote: 'Buyurtmalar restoran tarmog‘i orqali oshxonaga yuboriladi. Bu yerda to‘lov olinmaydi.',
+  cartTitle: '{n} ta taom tanlandi', cartSub: 'Buyurtmangizda {n} ta taom', youSave: 'Tejaysiz: {amount}', clear: 'Tozalash', placeOrder: 'Buyurtma berish',
+  buyGet: '{b} ta oling — {g} tasi bepul', always: 'Doimo',
+
+  modelLabel: 'Taomning interaktiv 3D modeli', liveModel: 'Jonli 3D model', autoSpin: 'Avto-aylantirish',
+  explode: '✦ Masalliqlarni ajratish', assemble: '✦ Taomni qayta yig‘ish', resetView: 'Ko‘rinishni tiklash',
+  hdHint: 'HD: mavjud bo‘lsa, fotorealistik 3D-skan model', hdSlow: 'Bu qurilmada HD sekin ishladi — oddiy rejimga qaytarildi.',
+  photoModel: 'HD fotorealistik model', hdLoading: 'Fotorealistik model yuklanmoqda…', hdFailed: 'Fotorealistik modelni yuklab bo‘lmadi — oddiy model ko‘rsatilmoqda.',
+  hdNotAvailable: 'Bu taom uchun hozircha fotorealistik model yo‘q — oddiy model ko‘rsatilmoqda.',
+  hdSolid: 'Bu fotorealistik skan bir butun bo‘lak, shuning uchun masalliqlarini ajratib bo‘lmaydi.',
+  hdCredit: 'Skan: Poly Haven (CC0)', hdCreditBlender: 'Bulochka: Poly Haven skani (CC0) · masalliqlar Blenderda yaratilgan', hdCreditModelled: 'Ushbu menyu uchun Blenderda modellashtirilgan', hdCreditBoard: 'Blenderda modellashtirilgan · taxta: Poly Haven skani (CC0)', arrangeSpread: 'Masalliqlarni ustma-ust emas, yonma-yon joylash (assorti)',
+  modelHint: 'Aylantirish uchun suring · Yaqinlashtirish uchun ikki barmoqdan foydalaning · Masalliqni bosing',
+  unavailable3d: '3D ko‘rinish mavjud emas', fallbackDesc: 'Retsept va masalliqlar miqdorini quyida ko‘rishingiz mumkin.',
+  prepTime: 'Tayyorlash vaqti', energy: 'Quvvat', price: 'Narx', recipe: 'Retsept va miqdorlar', min: 'daq', kcal: 'kkal',
+  unit_g: 'g', unit_ml: 'ml', pcs: 'dona', slices: 'tilim',
+  decrease: 'Miqdorni kamaytirish', increase: 'Miqdorni oshirish', addOrder: '{n} ta qo‘shish · {total}', close: 'Yopish',
+
+  confirmTitle: 'Buyurtmani tasdiqlang', checkoutDesc: 'O‘tirgan stolingizni tanlang. Buyurtmangizni oshxonaga yuboramiz.',
+  tableNumber: 'Stol raqami', table: 'Stol', tableName: '{n}-stol', free: 'Bo‘sh', busy: 'Band', needsBill: 'Hisob',
+  items: 'Soni', total: 'Jami', discount: 'Chegirma', noteOptional: 'Izoh (ixtiyoriy)', notePlaceholder: 'masalan, piyozsiz',
+  cancel: 'Bekor qilish', sending: 'Yuborilmoqda…', confirmOrder: 'Tasdiqlash', pickTable: 'Iltimos, stol raqamini tanlang.',
+  cartUnavailable: 'Buyurtmangizdagi ayrim taomlar tugagan. Ularni olib tashlab, qayta urinib ko‘ring.',
+  confirmed: 'Buyurtma tasdiqlandi!', showNumber: 'Ushbu raqamni ofitsiantga ko‘rsating', thanks: 'Ajoyib, rahmat!', takenBy: 'Qabul qilgan', meals: 'Taomlar',
+  added: '✅ {name} buyurtmangizga qo‘shildi', notAvailable: '{name} tugagan.', maxQty: 'Har bir taomdan ko‘pi bilan 20 ta porsiya.',
+
+  new: 'Yangi', preparing: 'Tayyorlanmoqda', ready: 'Tayyor', served: 'Yetkazildi', cancelled: 'Bekor qilingan',
+  accept: 'Tayyorlashni boshlash', markReady: 'Tayyor deb belgilash', markServed: 'Yetkazildi deb belgilash', backToNew: 'Yangiga qaytarish', backToPreparing: 'Tayyorlanmoqdaga qaytarish',
+  cancelOrder: 'Buyurtmani bekor qilish', cancelReason: 'Sabab', cancelReasonHelp: 'Jamoaga buyurtma nega bekor qilinganini yozing.', back: 'Orqaga',
+  orderUpdated: '{number} buyurtma → {status}', noOrders: 'Hozircha buyurtma yo‘q.',
+  alertNew: 'Yangi buyurtma {number} · {table}-stol', alertReady: '{number} buyurtma TAYYOR · {table}-stol',
+
+  waiterAccess: 'Ofitsiant uchun kirish', staffPin: '4 xonali xodim PIN-kodini kiriting', managerAccess: 'Menejer uchun kirish', enterAdminPin: 'Admin PIN-kodini kiriting',
+  adminOnly: 'Bu PIN-kodda admin huquqi yo‘q.', allDigits: 'Barcha 4 ta raqamni kiriting.', clearPin: 'PIN-kodni tozalash', deleteDigit: 'Oxirgi raqamni o‘chirish',
+  demoAccess: 'Xodimlar uchun bo‘lim. PIN-kod bo‘lmasa, menejerdan so‘rang.',
+  waiterConsole: 'Ofitsiant paneli', signedIn: 'Tizimga kirgan: {name}', lockConsole: 'Panelni qulflash', locked: 'Qulflandi',
+  selectTable: 'Stolni tanlang', tableSelected: '{n}-stol tanlandi', noTable: 'Stol tanlanmagan',
+  billPaid: 'To‘landi — stolni bo‘shatish', requestBill: 'Hisob so‘raldi',
+  takeOrder: 'Buyurtma olish', orders: 'Buyurtmalar', pickTableFirst: 'Buyurtma olish uchun chapdan stolni tanlang.',
+  ordersForTable: '{n}-stol buyurtmalari', allTables: 'Barcha stollar', showFinished: 'Yakunlanganlarni ko‘rsatish', noActiveOrders: 'Faol buyurtma yo‘q.',
+  orderSlip: 'Buyurtma ro‘yxati', sendTo: 'Qayerga yuborish', newOrder: 'Yangi buyurtma', addToOrder: '{number} ga qo‘shish', emptySlip: 'Hozircha taom yo‘q — ro‘yxatdan taom qo‘shing.',
+  addFirst: 'Kamida bitta taom qo‘shing.', itemsAdded: '{number} buyurtmaga qo‘shildi', addToKitchen: 'Buyurtmaga qo‘shib, oshxonaga yuborish', sendKitchen: 'Buyurtmani oshxonaga yuborish',
+
+  dashboard: 'Menejer paneli', dashboardDesc: 'Joriy buyurtmalar, aksiyalar, menyu va xodimlar', lockDashboard: 'Panelni qulflash',
+  defaultPinWarn: 'Siz hali standart PIN-koddan foydalanmoqdasiz. Uni «Xodimlar» bo‘limida o‘zgartiring.',
+  tabOverview: 'Umumiy', tabEvents: 'Aksiyalar', tabMenu: 'Menyu', tabStaff: 'Xodimlar',
+  orders12: 'Buyurtmalar (12 soat)', revenue12: 'Tushum (12 soat)', activeTickets: 'Faol buyurtmalar', occupied: 'Band stollar', liveOrders: 'Joriy buyurtmalar',
+
+  newEvent: 'Yangi aksiya', editEvent: 'Aksiyani tahrirlash',
+  eventsHelp: 'Aksiyalar buyurtma paytida avtomatik qo‘llanadi. Bir taomga bir nechta aksiya to‘g‘ri kelsa, eng katta chegirma olinadi.',
+  noEvents: 'Hozircha aksiya yo‘q.', confirmDeleteEvent: '«{name}» aksiyasi o‘chirilsinmi?', deleted: 'O‘chirildi',
+  allMeals: 'Barcha taomlar', liveNow: 'Hozir faol', scheduled: 'Rejalashtirilgan', off: 'O‘chiq', active: 'Faol', edit: 'Tahrirlash', delete: 'O‘chirish',
+  presets: 'Tayyor shablonlar', titleEn: 'Nomi (inglizcha)', titleUz: 'Nomi (o‘zbekcha)', eventType: 'Turi',
+  typePercent: 'Foizli chegirma', typeFixed: 'Belgilangan summa chegirma', typeBogo: 'X ta oling, Y tasi bepul',
+  percentOff: 'Chegirma (%)', amountOff: 'Chegirma summasi (so‘m, har bir dona)', buyQty: 'Sotib olish', freeQty: 'Bepul',
+  appliesTo: 'Qaysi taomlarga', appliesHelp: 'Toifalar va/yoki alohida taomlarni tanlang. Barchasi bo‘sh bo‘lsa, hamma taomga qo‘llanadi.', searchMeals: 'Taom qidirish…',
+  schedule: 'Jadval', scheduleHelp: 'Bo‘sh qoldirsangiz, doimo faol. Hafta kunlari, kunlik vaqt oralig‘i va/yoki sana oralig‘ini tanlang.',
+  startTime: 'Har kuni dan', endTime: 'Har kuni gacha', fromDate: 'Boshlanish sanasi', toDate: 'Tugash sanasi',
+  banner: 'Banner rasmi (ixtiyoriy)', removeImage: 'Rasmni olib tashlash', imageTypeError: 'PNG, JPEG yoki WebP rasm tanlang.', imageSizeError: 'Rasm juda katta (eng ko‘pi 3 MB).',
+  saved: 'Saqlandi', save: 'Saqlash',
+
+  categoriesTitle: 'Toifalar', newCategory: 'Yangi toifa', editCategory: 'Toifani tahrirlash', mealsTitle: 'Taomlar', newMeal: 'Yangi taom', editMeal: 'Taomni tahrirlash',
+  confirmDeleteCategory: '«{name}» toifasi o‘chirilsinmi?', confirmDeleteMeal: '«{name}» taomi o‘chirilsinmi?',
+  priceUpdated: 'Narx {total} ga o‘zgartirildi', invalidPrice: 'To‘g‘ri narx kiriting.', priceFor: '{name} narxi', availability: '{name} mavjudligi',
+  nameEn: 'Nomi (inglizcha)', nameUz: 'Nomi (o‘zbekcha)', icon: 'Belgi', parentCategory: 'Asosiy toifa', sortOrder: 'Tartib raqami', none: 'Yo‘q',
+  tagEn: 'Qisqa tavsif (inglizcha)', tagUz: 'Qisqa tavsif (o‘zbekcha)', descEn: 'Tavsif (inglizcha)', descUz: 'Tavsif (o‘zbekcha)',
+  category: 'Toifa', priceUzs: 'Narx (so‘m)', container: '3D idish', photo: 'Rasm (ixtiyoriy)', available: 'Mavjud',
+  container_plate: 'Likopcha', container_board: 'Yog‘och taxta', container_bowl: 'Kosa', container_glass: 'Stakan', container_mug: 'Krujka', container_cup: 'Qahva finjoni', container_none: 'Yo‘q',
+  ingredientsTitle: 'Masalliqlar (pastdan yuqoriga)', ingredientsHelp: 'Har bir masalliq 3D modelda alohida qatlam bo‘ladi. Shakl va rang tanlang.',
+  legacyModelNote: 'Bu taom qo‘lda yaratilgan 3D modelga ega. Nom va miqdorlarni o‘zgartirish mumkin, qatlam qo‘shib yoki shaklini o‘zgartirib bo‘lmaydi.',
+  amount: 'Miqdor', unit: 'Birlik', color: 'Rang', shape: 'Shakl', size: 'Hajm', moveUp: 'Yuqoriga', moveDown: 'Pastga', addIngredient: 'Masalliq qo‘shish',
+  shape_disc: 'Disk', shape_slab: 'Plita', shape_mound: 'Do‘ng', shape_scatter: 'Bo‘laklar', shape_rings: 'Halqalar', shape_drizzle: 'Sous chizig‘i',
+  shape_sphere: 'Sharlar', shape_roll: 'Tayoqcha / rulet', shape_tall: 'Baland', shape_liquid: 'Suyuqlik', shape_foam: 'Ko‘pik', shape_ice: 'Muz', shape_leaf: 'Barglar',
+
+  staff: 'Xodimlar', addStaff: 'Xodim qo‘shish', name: 'Ism', role: 'Rol', pin: 'PIN', add: 'Qo‘shish', newPin: 'Yangi PIN', defaultPin: 'Standart PIN',
+  confirmDeleteStaff: '{name} olib tashlansinmi?', restaurantSettings: 'Restoran sozlamalari', tableCount: 'Stollar soni',
+
+  errNetwork: 'Serverga ulanib bo‘lmadi.', errGeneric: 'Xatolik yuz berdi.',
+  'srv:Incorrect PIN': 'PIN-kod noto‘g‘ri. Qayta urinib ko‘ring.',
+};
+
+export const DICTS: Record<Lang, Dict> = { en, uz };
+export type TFn = (key: string, vars?: Record<string, string | number>) => string;
+
+export function makeT(lang: Lang): TFn {
+  return (key, vars) => {
+    let s = DICTS[lang][key] ?? DICTS.en[key] ?? (key.startsWith('srv:') ? key.slice(4) : key);
+    if (vars) for (const [k, v] of Object.entries(vars)) s = s.split('{' + k + '}').join(String(v));
+    return s;
+  };
+}
